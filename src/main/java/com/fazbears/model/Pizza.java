@@ -9,6 +9,8 @@ public class Pizza extends Product {
     private String crustType;
     private List<Topping> toppings;
     private boolean isStuffedCrust;
+    private List<String> sauces;
+    private List<String> extras;
 
     public Pizza(String name, int size, String crustType, boolean isStuffedCrust) {
         super(name);
@@ -16,6 +18,8 @@ public class Pizza extends Product {
         this.crustType = crustType;
         this.toppings = new ArrayList<>();
         this.isStuffedCrust = isStuffedCrust;
+        List<String> sauces = new ArrayList<>();
+        List<String> extras = new ArrayList<>();
     }
 
     public int getSize() {
@@ -50,8 +54,24 @@ public class Pizza extends Product {
         isStuffedCrust = stuffedCrust;
     }
 
+    public List<String> getSauces() {
+        return sauces;
+    }
+
+    public List<String> getExtras() {
+        return extras;
+    }
+
     public void addTopping(Topping topping) {
         toppings.add(topping);
+    }
+
+    public void addSauce(String sauce) {
+        sauces.add(sauce);
+    }
+
+    public void addExtra(String extra) {
+        extras.add(extra);
     }
 
     @Override
