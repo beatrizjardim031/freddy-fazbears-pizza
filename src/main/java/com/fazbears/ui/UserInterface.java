@@ -182,17 +182,24 @@ public class UserInterface {
         pizza.addTopping(new Cheese(name, isExtra));
     }
 
-//    private void addTopping(String name, Pizza pizza) {
-//        System.out.print("Extra? Y/N: ");
-//        String extra = input.nextLine();
-//        boolean isExtra = extra.equalsIgnoreCase("Y");
-//        pizza.addTopping(new Meat(name, isExtra));
-//
-//        System.out.print("Extra? Y/N: ");
-//        String extraCheese = input.nextLine();
-//        boolean isExtraCheese = extra.equalsIgnoreCase("Y");
-//        pizza.addTopping(new Cheese(name, isExtra));
-//
-//
-//    }
+// helper methods
+
+    private String askForText (String prompt) {
+        System.out.print(prompt);
+        return input.nextLine();
+    }
+
+    private boolean askYesNo(String question) {
+        System.out.println(question);
+        String userInput = input.nextLine();
+
+        while (!userInput.equalsIgnoreCase("y") && !userInput.equalsIgnoreCase("n")) {
+            System.out.println(question);
+            userInput = input.nextLine();
+        }
+
+        return userInput.equalsIgnoreCase("y");
+
+    }
+
 }
