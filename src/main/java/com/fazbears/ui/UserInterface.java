@@ -103,7 +103,7 @@ public class UserInterface {
 
     }
 
-    private void addMeats(Pizza pizza) { //private method because only the class need to know about it
+    private void addMeats(Pizza pizza) { // private method because only the class need to know about it
         boolean addingMeats = true;
 
         while(addingMeats) {
@@ -201,7 +201,6 @@ public class UserInterface {
                 default -> System.out.println("Please select a valid option");
             }
         }
-
     }
 
     // refactored premium toppings into one single method
@@ -214,11 +213,34 @@ public class UserInterface {
         pizza.addTopping(topping);
     }
 
+    private void addSauce(Pizza pizza) {
 
-    private void addCheeseToPizza(String name, Pizza pizza) {
-        boolean isExtra = askYesNo("Would you like extra cheese? Y/N: ");
-        pizza.addTopping(new Cheese(name, isExtra));
+        System.out.println("""
+                    What sauce would you like on your pizza?
+                    1) Marinara
+                    2) Alfredo
+                    3) Pesto
+                    4) BBQ
+                    5) Buffalo
+                    6) Olive Oil
+                    0) Done
+                    """);
+            System.out.print("Choose: ");
+            int userChoice = input.nextInt();
+            input.nextLine();
+
+            switch (userChoice) {
+                case 1 -> pizza.addSauce("Marinara");
+                case 2 -> pizza.addSauce("Alfredo");
+                case 3 -> pizza.addSauce("Pesto");
+                case 4 -> pizza.addSauce("BBQ");
+                case 5 -> pizza.addSauce("Buffalo");
+                case 6 -> pizza.addSauce("Olive Oil");
+                default -> System.out.println("Please select a valid option");
+            }
+
     }
+
 
 // helper methods
 

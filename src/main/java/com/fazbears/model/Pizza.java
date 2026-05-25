@@ -18,8 +18,8 @@ public class Pizza extends Product {
         this.crustType = crustType;
         this.toppings = new ArrayList<>();
         this.isStuffedCrust = isStuffedCrust;
-        List<String> sauces = new ArrayList<>();
-        List<String> extras = new ArrayList<>();
+        this.sauces = new ArrayList<>();
+        this.extras = new ArrayList<>();
     }
 
     public int getSize() {
