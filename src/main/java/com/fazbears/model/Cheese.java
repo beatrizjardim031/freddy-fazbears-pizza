@@ -5,6 +5,12 @@ public class Cheese extends Topping {
     public Cheese(String name, boolean isExtra) {
         super(name, isExtra);
     }
+
+    // defined another constructor with extra set to false so I can use a constructor that takes only 1 parameter
+    public Cheese(String name) {
+        super(name, false);
+    }
+
     @Override
     public double calculatePrice(int pizzaSize) {
         double value;

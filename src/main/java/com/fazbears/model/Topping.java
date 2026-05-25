@@ -17,6 +17,10 @@ public abstract class Topping {
         return isExtra;
     }
 
+    public void setExtra(boolean extra) {
+        isExtra = extra;
+    }
+
     public abstract double calculatePrice (int pizzaSize);
 
     @Override

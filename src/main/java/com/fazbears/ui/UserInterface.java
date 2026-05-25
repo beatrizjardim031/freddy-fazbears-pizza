@@ -1,9 +1,6 @@
 package com.fazbears.ui;
 
-import com.fazbears.model.Cheese;
-import com.fazbears.model.Meat;
-import com.fazbears.model.Order;
-import com.fazbears.model.Pizza;
+import com.fazbears.model.*;
 
 import java.util.Scanner;
 
@@ -126,24 +123,18 @@ public class UserInterface {
 
             switch (userChoice) {
 
-                case 1 -> addMeatToPizza("Pepperoni", pizza);
-                case 2 -> addMeatToPizza("Sausage", pizza);
-                case 3 -> addMeatToPizza("Ham", pizza);
-                case 4 -> addMeatToPizza("Bacon", pizza);
-                case 5 -> addMeatToPizza("Chicken", pizza);
-                case 6 -> addMeatToPizza("Meatball", pizza);
+                case 1 -> addPremiumTopping(new Meat("Pepperoni"), pizza);
+                case 2 -> addPremiumTopping(new Meat("Sausage"), pizza);
+                case 3 -> addPremiumTopping(new Meat("Ham"), pizza);
+                case 4 -> addPremiumTopping(new Meat("Bacon"), pizza);
+                case 5 -> addPremiumTopping(new Meat("Chicken"), pizza);
+                case 6 -> addPremiumTopping(new Meat("Meatball"), pizza);
                 case 0 -> addingMeats = false;
                 default -> System.out.println("Please select a valid option");
             }
         }
     }
 
-    private void addMeatToPizza(String name, Pizza pizza) {
-        System.out.print("Extra? Y/N: ");
-        String extra = input.nextLine();
-        boolean isExtra = extra.equalsIgnoreCase("Y");
-        pizza.addTopping(new Meat(name, isExtra));
-    }
 
     private void addCheese(Pizza pizza) { //private method because only the class need to know about it
         boolean addingCheese = true;
@@ -164,21 +155,29 @@ public class UserInterface {
 
             switch (userChoice) {
 
-                case 1 -> addCheeseToPizza("Mozzarella", pizza);
-                case 2 -> addCheeseToPizza("Parmesan", pizza);
-                case 3 -> addCheeseToPizza("Ricotta", pizza);
-                case 4 -> addCheeseToPizza("Goat Cheese", pizza);
-                case 5 -> addCheeseToPizza("Buffalo", pizza);
+                case 1 -> addPremiumTopping(new Cheese("Mozzarella"), pizza);
+                case 2 -> addPremiumTopping(new Cheese("Parmesan"), pizza);
+                case 3 -> addPremiumTopping(new Cheese("Ricotta"), pizza);
+                case 4 -> addPremiumTopping(new Cheese("Goat Cheese"), pizza);
+                case 5 -> addPremiumTopping(new Cheese("Buffalo Cheese"), pizza);
                 case 0 -> addingCheese = false;
                 default -> System.out.println("Please select a valid option");
             }
         }
     }
 
+    // refactored premium toppings into one single method
+    private void addPremiumTopping (Topping topping, Pizza pizza) {
+        String question = String.format("Would you like extra %s? Y/N: ", topping.getName());
+        boolean isExtra = askYesNo(question);
+
+        topping.setExtra(isExtra);
+
+        pizza.addTopping(topping);
+    }
+
     private void addCheeseToPizza(String name, Pizza pizza) {
-        System.out.print("Extra? Y/N: ");
-        String extra = input.nextLine();
-        boolean isExtra = extra.equalsIgnoreCase("Y");
+        boolean isExtra = askYesNo("Would you like extra cheese? Y/N: ");
         pizza.addTopping(new Cheese(name, isExtra));
     }
 
@@ -190,11 +189,11 @@ public class UserInterface {
     }
 
     private boolean askYesNo(String question) {
-        System.out.println(question);
+        System.out.printf(question);
         String userInput = input.nextLine();
 
         while (!userInput.equalsIgnoreCase("y") && !userInput.equalsIgnoreCase("n")) {
-            System.out.println(question);
+            System.out.printf(question);
             userInput = input.nextLine();
         }
 
