@@ -145,6 +145,43 @@ public class UserInterface {
         pizza.addTopping(new Meat(name, isExtra));
     }
 
+    private void addCheese(Pizza pizza) { //private method because only the class need to know about it
+        boolean addingCheese = true;
+
+        while(addingCheese) {
+            System.out.println("""
+                    Add a cheese:
+                    1) Mozzarella
+                    2) Parmesan
+                    3) Ricotta
+                    4) Goat Cheese
+                    5) Buffalo
+                    0) Done
+                    """);
+            System.out.print("Choose: ");
+            int userChoice = input.nextInt();
+            input.nextLine();
+
+            switch (userChoice) {
+
+                case 1 -> addCheeseToPizza("Mozzarella", pizza);
+                case 2 -> addCheeseToPizza("Parmesan", pizza);
+                case 3 -> addCheeseToPizza("Ricotta", pizza);
+                case 4 -> addCheeseToPizza("Goat Cheese", pizza);
+                case 5 -> addCheeseToPizza("Buffalo", pizza);
+                case 0 -> addingCheese = false;
+                default -> System.out.println("Please select a valid option");
+            }
+        }
+    }
+
+    private void addCheeseToPizza(String name, Pizza pizza) {
+        System.out.print("Extra? Y/N: ");
+        String extra = input.nextLine();
+        boolean isExtra = extra.equalsIgnoreCase("Y");
+        pizza.addTopping(new Cheese(name, isExtra));
+    }
+
 //    private void addTopping(String name, Pizza pizza) {
 //        System.out.print("Extra? Y/N: ");
 //        String extra = input.nextLine();
