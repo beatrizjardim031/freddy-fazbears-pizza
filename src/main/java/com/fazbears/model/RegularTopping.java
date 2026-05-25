@@ -3,9 +3,10 @@ package com.fazbears.model;
 public class RegularTopping extends Topping {
 
 
-    public RegularTopping(String name, boolean isExtra) {
-        super(name, isExtra);
+    public RegularTopping(String name) {
+        super(name, false);
     }
+
 
     @Override
     public double calculatePrice(int pizzaSize) {

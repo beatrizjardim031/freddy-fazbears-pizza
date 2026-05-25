@@ -166,8 +166,46 @@ public class UserInterface {
         }
     }
 
+    private void addRegularToppings (Pizza pizza) {
+        boolean addingTopping = true;
+
+        while (addingTopping) {
+            System.out.println("""
+                    Other Toppings:
+                    1) Onions
+                    2) Mushrooms
+                    3) Bell Peppers
+                    4) Olives
+                    5) Tomatoes
+                    6) Spinach
+                    7) Basil
+                    8) Pineapple
+                    9) Anchovies
+                    0) Done
+                    """);
+            System.out.print("Choose: ");
+            int userChoice = input.nextInt();
+            input.nextLine();
+
+            switch (userChoice) {
+                case 1 -> pizza.addTopping(new RegularTopping("Onions"));
+                case 2 -> pizza.addTopping(new RegularTopping("Mushrooms"));
+                case 3 -> pizza.addTopping(new RegularTopping("Bell Peppers"));
+                case 4 -> pizza.addTopping(new RegularTopping("Olives"));
+                case 5 -> pizza.addTopping(new RegularTopping("Tomatoes"));
+                case 6 -> pizza.addTopping(new RegularTopping("Spinach"));
+                case 7 -> pizza.addTopping(new RegularTopping("Basil"));
+                case 8 -> pizza.addTopping(new RegularTopping("Pineapple"));
+                case 9 -> pizza.addTopping(new RegularTopping("Anchovies"));
+                case 0 -> addingTopping = false;
+                default -> System.out.println("Please select a valid option");
+            }
+        }
+
+    }
+
     // refactored premium toppings into one single method
-    private void addPremiumTopping (Topping topping, Pizza pizza) {
+    private void addPremiumTopping(Topping topping, Pizza pizza) {
         String question = String.format("Would you like extra %s? Y/N: ", topping.getName());
         boolean isExtra = askYesNo(question);
 
@@ -175,6 +213,7 @@ public class UserInterface {
 
         pizza.addTopping(topping);
     }
+
 
     private void addCheeseToPizza(String name, Pizza pizza) {
         boolean isExtra = askYesNo("Would you like extra cheese? Y/N: ");
