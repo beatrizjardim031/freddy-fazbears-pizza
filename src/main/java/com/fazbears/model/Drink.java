@@ -14,6 +14,10 @@ public class Drink extends Product {
         return size;
     }
 
+    public void setSize(String size) {
+        this.size = size;
+    }
+
     public String getFlavor() {
         return flavor;
     }

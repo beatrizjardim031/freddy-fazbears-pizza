@@ -87,19 +87,63 @@ public class UserInterface {
         int size = input.nextInt();
         input.nextLine();
 
-//        System.out.println("\nToppings (choose the amount of extra in each topping) : ");
-//        System.out.print("\nMeat: ");
-//
-//        System.out.print("\nCheese: ");
-//        System.out.print("\nOther toppings: ");
-
-//        System.out.print("\nWhat sauce would you like? ");
         System.out.print("\nWould you like the pizza with stuffed crust? Y/N");
         String stuffedAnswer = input.nextLine();
         boolean isStuffed = stuffedAnswer.equalsIgnoreCase("Y");
 
         Pizza newPizza = new Pizza("custom Pizza", size, type, isStuffed);
         currentOrder.addProduct(newPizza);
+
+    }
+
+    private int pickSize () {
+        int size = 0;
+
+        while (size < 8) {
+            System.out.println("""
+                    Choose a size:
+                    1) Size 8"
+                    2) Size 12"
+                    3) Size 16"
+                    """);
+            System.out.print("Choose: ");
+            int userChoice = input.nextInt();
+            input.nextLine();
+
+            switch (userChoice) {
+                case 1 -> size = 8;
+                case 2 -> size = 12;
+                case 3 -> size = 16;
+                default -> System.out.println("Please select the right choice");
+            }
+        }
+            return size;
+    }
+
+    private String pickCrust () {
+        String crust = null;
+
+        while (crust == null) {
+            System.out.println("""
+                    Choose a crust:
+                    1) Thin
+                    2) Regular
+                    3) Thick
+                    4) Cauliflower
+                    """);
+            System.out.print("Choose: ");
+            int userChoice = input.nextInt();
+            input.nextLine();
+
+            switch (userChoice) {
+                case 1 -> crust = "Thin";
+                case 2 -> crust = "Regular";
+                case 3 -> crust = "Thick";
+                case 4 -> crust = "Cauliflower";
+                default -> System.out.println("Please select the right choice");
+            }
+        }
+        return crust;
 
     }
 
