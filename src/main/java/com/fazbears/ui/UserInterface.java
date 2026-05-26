@@ -1,5 +1,6 @@
 package com.fazbears.ui;
 
+import com.fazbears.data.ReceiptManager;
 import com.fazbears.model.*;
 
 import java.util.Scanner;
@@ -387,7 +388,7 @@ public class UserInterface {
 
         boolean confirm = askYesNo("Would you like to confirm your order? Y/N (There will be no way back 🐻)");
         if (confirm) {
-            // save receipt
+            ReceiptManager.saveReceipt(currentOrder);
             // back home
             return true;
         } else {
