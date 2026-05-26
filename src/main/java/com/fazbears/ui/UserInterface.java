@@ -65,8 +65,8 @@ public class UserInterface {
 
             switch (userChoice) {
                 case 1 -> displayAddPizzaScreen();
-                case 2 -> System.out.println("addDrink()");
-                case 3 -> System.out.println("AddGarlicKnots()");
+                case 2 -> addDrink();
+                case 3 -> addGarlicKnots();
                 case 4 -> System.out.println("checkout()");
                 case 0 -> {
                     System.out.println("Going back to main screen");
