@@ -27,12 +27,12 @@ public class UserInterface {
 
         boolean isRunning = true;
 
-        while(isRunning) {
+        while (isRunning) {
             System.out.println("""
-                What would you like to do? (1st menu)
-                1) New Order
-                0) Exit
-                """);
+                    What would you like to do? (1st menu)
+                    1) New Order
+                    0) Exit
+                    """);
             System.out.print("Choose your option: ");
             int userChoice = input.nextInt();
             input.nextLine();
@@ -80,22 +80,22 @@ public class UserInterface {
 
     public void displayAddPizzaScreen() {
 
-      int size = pickSize();
+        int size = pickSize();
 
-      String crust = pickCrust();
+        String crust = pickCrust();
 
-      boolean isStuffed = askYesNo("Would you like stuffed crust? Y/N: ");
+        boolean isStuffed = askYesNo("Would you like stuffed crust? Y/N: ");
 
-      Pizza newPizza = new Pizza("Custom Pizza", size, crust, isStuffed);
-      addMeats(newPizza);// handles all meat
-      addCheese(newPizza);// handles all cheese
-      addRegularToppings(newPizza);
-      addSauce(newPizza);
-      currentOrder.addProduct(newPizza);
+        Pizza newPizza = new Pizza("Custom Pizza", size, crust, isStuffed);
+        addMeats(newPizza);// handles all meat
+        addCheese(newPizza);// handles all cheese
+        addRegularToppings(newPizza);
+        addSauce(newPizza);
+        currentOrder.addProduct(newPizza);
 
     }
 
-    private int pickSize () {
+    private int pickSize() {
         int size = 0;
 
         while (size < 8) {
@@ -116,10 +116,10 @@ public class UserInterface {
                 default -> System.out.println("Please select the right choice");
             }
         }
-            return size;
+        return size;
     }
 
-    private String pickCrust () {
+    private String pickCrust() {
         String crust = null;
 
         while (crust == null) {
@@ -143,13 +143,12 @@ public class UserInterface {
             }
         }
         return crust;
-
     }
 
     private void addMeats(Pizza pizza) { // private method because only the class need to know about it
         boolean addingMeats = true;
 
-        while(addingMeats) {
+        while (addingMeats) {
             System.out.println("""
                     Add a meat:
                     1) Pepperoni
@@ -178,11 +177,10 @@ public class UserInterface {
         }
     }
 
-
     private void addCheese(Pizza pizza) { //private method because only the class need to know about it
         boolean addingCheese = true;
 
-        while(addingCheese) {
+        while (addingCheese) {
             System.out.println("""
                     Add a cheese:
                     1) Mozzarella
@@ -209,7 +207,7 @@ public class UserInterface {
         }
     }
 
-    private void addRegularToppings (Pizza pizza) {
+    private void addRegularToppings(Pizza pizza) {
         boolean addingTopping = true;
 
         while (addingTopping) {
@@ -246,7 +244,7 @@ public class UserInterface {
         }
     }
 
-    // refactored premium toppings into one single method
+// refactored premium toppings into one single method
     private void addPremiumTopping(Topping topping, Pizza pizza) {
         String question = String.format("Would you like extra %s? Y/N: ", topping.getName());
         boolean isExtra = askYesNo(question);
@@ -259,35 +257,126 @@ public class UserInterface {
     private void addSauce(Pizza pizza) {
 
         System.out.println("""
-                    What sauce would you like on your pizza?
-                    1) Marinara
-                    2) Alfredo
-                    3) Pesto
-                    4) BBQ
-                    5) Buffalo
-                    6) Olive Oil
-                    0) Done
-                    """);
-            System.out.print("Choose: ");
-            int userChoice = input.nextInt();
-            input.nextLine();
+                What sauce would you like on your pizza?
+                1) Marinara
+                2) Alfredo
+                3) Pesto
+                4) BBQ
+                5) Buffalo
+                6) Olive Oil
+                0) Done
+                """);
+        System.out.print("Choose: ");
+        int userChoice = input.nextInt();
+        input.nextLine();
 
-            switch (userChoice) {
-                case 1 -> pizza.addSauce("Marinara");
-                case 2 -> pizza.addSauce("Alfredo");
-                case 3 -> pizza.addSauce("Pesto");
-                case 4 -> pizza.addSauce("BBQ");
-                case 5 -> pizza.addSauce("Buffalo");
-                case 6 -> pizza.addSauce("Olive Oil");
-                default -> System.out.println("Please select a valid option");
-            }
+        switch (userChoice) {
+            case 1 -> pizza.addSauce("Marinara");
+            case 2 -> pizza.addSauce("Alfredo");
+            case 3 -> pizza.addSauce("Pesto");
+            case 4 -> pizza.addSauce("BBQ");
+            case 5 -> pizza.addSauce("Buffalo");
+            case 6 -> pizza.addSauce("Olive Oil");
+            default -> System.out.println("Please select a valid option");
+        }
 
     }
 
+    private void addDrink() {
+        String size = pickDrinkSize();
+        String flavor = pickDrinkFlavor();
+
+        Drink newDrink = new Drink(size + " " + flavor, size, flavor);
+        currentOrder.addProduct(newDrink);
+    }
+
+    private String pickDrinkSize () {
+        String size = null;
+
+        while (size == null) {
+            System.out.println("""
+                    Choose a size:
+                    1) Small
+                    2) Medium
+                    3) Large
+                    """);
+            String userChoice = askForText("Choose: ");
+
+            switch (userChoice) {
+                case "1" -> size = "Small";
+                case "2" -> size = "Medium";
+                case "3" -> size = "Large";
+                default -> System.out.println("Please select the right choice");
+            }
+
+        }
+        return size;
+    }
+
+    private String pickDrinkFlavor() {
+        String flavor = null;
+
+        while (flavor == null) {
+            System.out.println("""
+                    Choose a flavor:
+                    1) Faz-Fizz Cola: Classic cola with vanilla and caramel.
+                    
+                    2) Bonnie Berry Punch: Blue raspberry, blackberry, and lemonade.
+                    
+                    3) Chica's Pink Lemonade: Strawberry lemonade with a sweet candy finish.
+                    
+                    4) Foxy's Black Cherry Cola: Dark cherry cola with lime.
+                    
+                    5) Golden Cup Mystery Soda: Random mystery flavor.
+                    
+                    """);
+            String userChoice = askForText("Choose: ");
+
+            switch (userChoice) {
+                case "1" -> {
+                    flavor = "Faz-Fizz Cola";
+                    System.out.println("The bubbles keep rising after the cup is empty 🫧🥤");
+                }
+                case "2" -> {
+                    flavor = "Bonnie Berry Punch";
+                    System.out.println("Stains your tongue blue. Stains your dreams too 🐰");
+                }
+                case "3" -> {
+                    flavor = "Chica's Pink Lemonade";
+                    System.out.println("Served with a smile you did not ask for 🐥");
+                }
+                case "4" -> {
+                    flavor = "Foxy's Black Cherry Cola";
+                    System.out.println("Best enjoyed near Pirate Cove. Never go there alone 🦊");
+                }
+                case "5" -> {
+                    flavor = "Golden Cup Mystery Soda";
+                    System.out.println("Weird... The system says you ordered it before.");
+                }
+                default -> System.out.println("Please select the right choice");
+            }
+        }
+        return flavor;
+    }
+
+    private void addGarlicKnots() {
+        System.out.println("""
+                      Backstage Garlic Knots
+                Warm garlic knots served with marinara.
+                Please do not ask why the box is sealed.
+                """);
+        System.out.print("\nHow many Garlic Knots would you like?: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        GarlicKnots garlicKnots = new GarlicKnots("Backstage Garlic Knots", quantity);
+
+        currentOrder.addProduct(garlicKnots);
+    }
 
 // helper methods
 
-    private String askForText (String prompt) {
+    private String askForText(String prompt) {
         System.out.print(prompt);
         return input.nextLine();
     }
