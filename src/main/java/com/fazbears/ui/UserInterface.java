@@ -67,7 +67,12 @@ public class UserInterface {
                 case 1 -> displayAddPizzaScreen();
                 case 2 -> addDrink();
                 case 3 -> addGarlicKnots();
-                case 4 -> System.out.println("checkout()");
+                case 4 -> {
+                    boolean completed = checkout();
+                    if (completed) {
+                        isRunning = false;
+                    }
+                }
                 case 0 -> {
                     System.out.println("Going back to main screen");
                     isRunning = false;
@@ -78,7 +83,7 @@ public class UserInterface {
         }
     }
 
-    public void displayAddPizzaScreen() {
+    private void displayAddPizzaScreen() {
 
         int size = pickSize();
 
@@ -374,6 +379,23 @@ public class UserInterface {
         currentOrder.addProduct(garlicKnots);
     }
 
+    private boolean checkout() {
+        for (Product product : currentOrder.getProducts()) {
+            System.out.println(product);
+        }
+        System.out.printf("Total: $%.2f", currentOrder.calculateTotal());
+
+        boolean confirm = askYesNo("Would you like to confirm your order? Y/N (There will be no way back 🐻)");
+        if (confirm) {
+            // save receipt
+            // back home
+            return true;
+        } else {
+            // cancel
+            // back home
+            return false;
+        }
+    }
 
 // helper methods
 
