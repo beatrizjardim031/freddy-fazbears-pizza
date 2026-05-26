@@ -165,19 +165,17 @@ public class UserInterface {
                     6) Meatball
                     0) Done
                     """);
-            System.out.print("Choose: ");
-            int userChoice = input.nextInt();
-            input.nextLine();
+            String userChoice = askForText("Choose: ");
 
             switch (userChoice) {
 
-                case 1 -> addPremiumTopping(new Meat("Pepperoni"), pizza);
-                case 2 -> addPremiumTopping(new Meat("Sausage"), pizza);
-                case 3 -> addPremiumTopping(new Meat("Ham"), pizza);
-                case 4 -> addPremiumTopping(new Meat("Bacon"), pizza);
-                case 5 -> addPremiumTopping(new Meat("Chicken"), pizza);
-                case 6 -> addPremiumTopping(new Meat("Meatball"), pizza);
-                case 0 -> addingMeats = false;
+                case "1" -> addPremiumTopping(new Meat("Pepperoni"), pizza);
+                case "2" -> addPremiumTopping(new Meat("Sausage"), pizza);
+                case "3"-> addPremiumTopping(new Meat("Ham"), pizza);
+                case "4" -> addPremiumTopping(new Meat("Bacon"), pizza);
+                case "5" -> addPremiumTopping(new Meat("Chicken"), pizza);
+                case "6" -> addPremiumTopping(new Meat("Meatball"), pizza);
+                case "0"-> addingMeats = false;
                 default -> System.out.println("Please select a valid option");
             }
         }
@@ -196,18 +194,16 @@ public class UserInterface {
                     5) Buffalo
                     0) Done
                     """);
-            System.out.print("Choose: ");
-            int userChoice = input.nextInt();
-            input.nextLine();
+            String userChoice = askForText("Choose: ");
 
             switch (userChoice) {
 
-                case 1 -> addPremiumTopping(new Cheese("Mozzarella"), pizza);
-                case 2 -> addPremiumTopping(new Cheese("Parmesan"), pizza);
-                case 3 -> addPremiumTopping(new Cheese("Ricotta"), pizza);
-                case 4 -> addPremiumTopping(new Cheese("Goat Cheese"), pizza);
-                case 5 -> addPremiumTopping(new Cheese("Buffalo Cheese"), pizza);
-                case 0 -> addingCheese = false;
+                case "1" -> addPremiumTopping(new Cheese("Mozzarella"), pizza);
+                case "2" -> addPremiumTopping(new Cheese("Parmesan"), pizza);
+                case "3" -> addPremiumTopping(new Cheese("Ricotta"), pizza);
+                case "4" -> addPremiumTopping(new Cheese("Goat Cheese"), pizza);
+                case "5" -> addPremiumTopping(new Cheese("Buffalo Cheese"), pizza);
+                case "0" -> addingCheese = false;
                 default -> System.out.println("Please select a valid option");
             }
         }
@@ -386,7 +382,7 @@ public class UserInterface {
         }
         System.out.printf("Total: $%.2f", currentOrder.calculateTotal());
 
-        boolean confirm = askYesNo("Would you like to confirm your order? Y/N (There will be no way back 🐻)");
+        boolean confirm = askYesNo("\nWould you like to confirm your order? Y/N (There will be no way back 🐻)");
         if (confirm) {
             ReceiptManager.saveReceipt(currentOrder);
             // back home

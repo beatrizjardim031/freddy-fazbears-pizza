@@ -27,7 +27,7 @@ public class ReceiptManager {
 
                 bufferedWriter.newLine(); // moves to the next line
             }
-            bufferedWriter.write(String.format("Total: $%.2f", order.calculateTotal())); // writes the total price at the bottom
+            bufferedWriter.write(String.format("Total: $%.2f%n", order.calculateTotal())); // writes the total price at the bottom
 
 
             bufferedWriter.close();
