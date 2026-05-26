@@ -80,19 +80,18 @@ public class UserInterface {
 
     public void displayAddPizzaScreen() {
 
-        System.out.print("Select your crust type: ");
-        String type = input.nextLine();
+      int size = pickSize();
 
-        System.out.print("\nPizza size: ");
-        int size = input.nextInt();
-        input.nextLine();
+      String crust = pickCrust();
 
-        System.out.print("\nWould you like the pizza with stuffed crust? Y/N");
-        String stuffedAnswer = input.nextLine();
-        boolean isStuffed = stuffedAnswer.equalsIgnoreCase("Y");
+      boolean isStuffed = askYesNo("Would you like stuffed crust? Y/N: ");
 
-        Pizza newPizza = new Pizza("custom Pizza", size, type, isStuffed);
-        currentOrder.addProduct(newPizza);
+      Pizza newPizza = new Pizza("Custom Pizza", size, crust, isStuffed);
+      addMeats(newPizza);// handles all meat
+      addCheese(newPizza);// handles all cheese
+      addRegularToppings(newPizza);
+      addSauce(newPizza);
+      currentOrder.addProduct(newPizza);
 
     }
 
