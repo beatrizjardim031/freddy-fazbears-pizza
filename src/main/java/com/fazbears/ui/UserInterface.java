@@ -374,6 +374,7 @@ public class UserInterface {
         currentOrder.addProduct(garlicKnots);
     }
 
+
 // helper methods
 
     private String askForText(String prompt) {
