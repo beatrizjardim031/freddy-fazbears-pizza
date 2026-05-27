@@ -66,6 +66,10 @@ public class Pizza extends Product {
         toppings.add(topping);
     }
 
+    public void removeTopping(Topping topping) {
+        toppings.remove(topping);
+    }
+
     public void addSauce(String sauce) {
         sauces.add(sauce);
     }
