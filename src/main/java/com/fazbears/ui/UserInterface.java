@@ -191,8 +191,8 @@ public class UserInterface {
 
             switch (userChoice) {
                 case "1" -> customizeSignaturePizza(new FreddysClassicPartyPizza());
-                case "2" -> new ChicasKitchenFeast();
-                case "3" -> new GoldenFreddysAfterHoursSpecial();
+                case "2" -> customizeSignaturePizza(new ChicasKitchenFeast());
+                case "3" -> customizeSignaturePizza(new GoldenFreddysAfterHoursSpecial());
                 case "4" -> displayAddPizzaScreen();
                 case "0" -> {
                     System.out.println("Going back to main page");
@@ -200,15 +200,7 @@ public class UserInterface {
                 }
             }
         }
-
-
-
-
-
     }
-
-
-
 
     private void displayAddPizzaScreen() {
 
@@ -572,7 +564,6 @@ public class UserInterface {
     }
 
 
-
 // helper methods
     private void addPremiumTopping(Topping topping, Pizza pizza) { // refactored premium toppings into one single method
         String question = String.format("Would you like extra %s? Y/N: ", topping.getName());
@@ -610,14 +601,13 @@ public class UserInterface {
 
             switch (userChoice) {
                 case "1" -> displayAddToppingsMenu(pizza);
-
-                case "2" -> {
-
+                case "2" -> removeToppingFromPizza(pizza);
+                case "3" -> {
+                    currentOrder.addProduct(pizza);
+                    isRunning = false;
                 }
             }
         }
-
-
     }
 
     private void displayAddToppingsMenu(Pizza pizza) {
