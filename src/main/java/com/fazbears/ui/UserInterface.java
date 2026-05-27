@@ -48,17 +48,17 @@ public class UserInterface {
                           ⠈⠓⠦⠤⣤⣀⣠⣄⣀⣠⠤⠴⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀
                  Family Fun, Fresh Pizza, Forever Memories
         ---------------------------------------------------------------
-        | House Notice:                                               |   
+        | House Notice:                                               |
         | Birthday parties must be scheduled before dark.             |
-        """);
+        ---------------------------------------------------------------""");
+
 
         boolean isRunning = true;
 
         while (isRunning) {
             System.out.println("""
-                    |                                                             |
+                                        Ready to order?
                     |-------------------------------------------------------------|
-                    |Ready to order?                                              |
                     |1) New Order                                                 |
                     |0) Exit                                                      |
                     ===============================================================
@@ -68,7 +68,26 @@ public class UserInterface {
 
             switch (userChoice) {
                 case "1" -> displayOrderScreen();
-                case "0" -> isRunning = false;
+                case "0" -> {
+                    System.out.println("""
+                            -------------------------------------------------------------
+                            | Thank you for using Freddy Fazbear's App!                 |
+                            |                                                           |
+                            | Freddy Fazbear's Pizzeria is not responsible for          |
+                            | missing items, missing time, missing children,            |
+                            | unusual dreams, moving animatronics,                      |
+                            | singing from vents, duplicate family members,             |
+                            | or memories recovered during dessert.                     |
+                            |                                                           |
+                            | Thank you for dining with us.                             |
+                            |                                                           |
+                            |Please come again.                                         |
+                            |                                                           |
+                            |You always do. 🐻🐥🐰🦊                                   | 
+                            =============================================================
+                            """);
+                    isRunning = false;
+                }
                 default -> System.out.println("Please select the right choice");
             }
         }
@@ -87,12 +106,11 @@ public class UserInterface {
                 |-------------------------------------------------------------|
                 | House Notice:                                               |
                 | Please remain with your party until your order is complete. | 
-                ---------------------------------------------------------------
-                """);
+                |                                                             |""");
+
 
         while (isRunning) {
             System.out.println("""
-                    |                                                             |
                     | 1) Add Pizza                                                |
                     | 2) Add drink                                                | 
                     | 3) Add Garlic Knots                                         |
@@ -132,8 +150,7 @@ public class UserInterface {
         |-------------------------------------------------------------|
         | Kitchen Notice:                                             |
         | All pizzas are prepared fresh. Some even too fresh...       |
-        ---------------------------------------------------------------
-        """);
+        |                                                             |""");
 
         int size = pickSize();
 
@@ -157,7 +174,6 @@ public class UserInterface {
 
         while (size < 8) {
             System.out.println("""
-                    |                                                             |
                     | What size would you like?                                   |
                     | 1) Size 8"                                                  |
                     | 2) Size 12"                                                 |
@@ -444,9 +460,16 @@ public class UserInterface {
             System.out.println("Your order is empty.");
             return false;
         }
+
+        if (!isValidOrder()) {
+            System.out.println("You need to order at least a Drink or some GarlicKnots");
+            return false;
+        }
+
         for (Product product : currentOrder.getProducts()) {
             System.out.println(product);
         }
+
         System.out.println("--------------------------------------------------");
         System.out.printf("Total: $%.2f%n", currentOrder.calculateTotal());
         System.out.println("--------------------------------------------------");
@@ -463,6 +486,21 @@ public class UserInterface {
             return false;
         }
     }
+
+    private boolean isValidOrder() { // count pizza
+        int pizzaCount = 0;
+        boolean hasDrinkOrKnots = false;
+        for (Product product : currentOrder.getProducts()) {
+            if (product instanceof Pizza) pizzaCount++;
+            if (product instanceof Drink || product instanceof GarlicKnots) hasDrinkOrKnots = true;
+
+        }
+        if (pizzaCount == 0 && !hasDrinkOrKnots) {
+            return false;
+        }
+        return true;
+    }
+
 
 // helper methods
 
