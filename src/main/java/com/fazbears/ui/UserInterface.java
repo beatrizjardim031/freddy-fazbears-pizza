@@ -24,23 +24,51 @@ public class UserInterface {
 
     //skeletons
     public void start() {
-        System.out.println("Welcome banner");
+        System.out.println("""
+        ==========================================================
+                       FREDDY FAZBEAR'S PIZZERIA
+        ==========================================================
+                             ⣎⠉⠉⠉⠉⠉⠉⠉⠉⣱⠀⠀⠀⠀⠀⠀⠀⠀⠀          ⠀
+                              ⢻⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                            ⢰⠚⠒⠒⠒⠒⠒⠒⠒⠒⠓⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                   ⢀⣀⣀⣀⠀⢠⡤⢄⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣇⡠⢤⡄⠀⣀⣀⣀⡀
+                  ⡰⠕⠀⠐⠂⠍⡆⠙⣭⣛⡀⠤⠤⠤⠤⠤⠤⠤⠄⢐⣛⣭⠋⢰⡩⠐⠐⠫⢆
+                 ⢣⢄⠀⠀⢀⢠⢛⠞⠁⠀⠉⠉⠁⠒⠒⠒⠒⠈⠉⠉⠀⠈⠳⡛⡄⡀⠀⠀⡠⡜
+                  ⠳⣕⠀⣰⣻⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀⠙⣝⣆⠀⣪⠞⠀
+                     ⠉⢠⠇⠀⠀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⣀⣀⣀⠀⠀⠀⠸⡄⠉⠀⠀⠀
+                      ⢸⠀⠀⢠⡾⠿⠿⠿⣿⣄⠀⠀⣠⣿⠿⠿⠿⢷⡀⠀⠀⡇⠀⠀⠀⠀
+                      ⢸⠀⠀⠈⢀⣶⠛⠛⢦⠙⠀⠐⠋⡶⠛⠛⣷⡀⠀⠀⠀⡇⠀⠀⠀⠀
+                      ⡸⠃⠀⠀⠸⣷⡈⡃⣸⠇⠀⠀⠸⣇⢹⠁⣾⠇⠀⠀⠘⢇⠀⠀⠀⠀
+                    ⢸⠁⠀⠀⠀⢀⣩⠿⢿⡭⠤⢶⣶⣤⣭⡿⠿⣉⣀⠀⠀⠀  ⠈⡆⠀⠀⠀
+                     ⠘⢆⡀⢀⡞⠁⠀⠀⠀⠙⠛⠿⠿⠛⠋⠀⠀⠀⠈⢳⡀⠀⡰⠃⠀⠀⠀
+                       ⢹⢾⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⢠⡗  ⡏⠀⠀⠀⠀⠀
+                       ⠸⡄⢷⣀⠀⠀⠀⠀⠀⣠⣄⠀⠀⠀⠀⠀  ⢀⡾ ⢠⠃⠀⠀⠀⠀⠀
+                        ⢣⠈⠫⣹⡒⠚⢉⠉⢉⡉⠉⣉⠓⢒⣏⠝⠁⡞⠀⠀⠀⠀⠀⠀
+                         ⠳⡀⠈⠙⠒⠛⠤⠼⠧⠤⠛⠒⠋⠁⣀⠞⠁⠀⠀⠀⠀⠀⠀
+                          ⠈⠓⠦⠤⣤⣀⣠⣄⣀⣠⠤⠴⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀
+                 Family Fun, Fresh Pizza, Forever Memories
+        ---------------------------------------------------------------
+        | House Notice:                                               |   
+        | If you hear music from the vents, please notify staff.      |
+        """);
 
         boolean isRunning = true;
 
         while (isRunning) {
             System.out.println("""
-                    What would you like to do? (1st menu)
-                    1) New Order
-                    0) Exit
+                    |                                                             |
+                    |-------------------------------------------------------------|
+                    |Ready to order?                                              |
+                    |1) New Order                                                 |
+                    |0) Exit                                                      |
+                    ===============================================================
                     """);
             System.out.print("Choose your option: ");
-            int userChoice = input.nextInt();
-            input.nextLine();
+            String userChoice = input.nextLine();
 
             switch (userChoice) {
-                case 1 -> displayOrderScreen();
-                case 0 -> isRunning = false;
+                case "1" -> displayOrderScreen();
+                case "0" -> isRunning = false;
                 default -> System.out.println("Please select the right choice");
             }
         }
@@ -50,31 +78,41 @@ public class UserInterface {
         currentOrder = new Order();
 
         boolean isRunning = true;
+        System.out.println("""
+                |=============================================================|
+                |                FREDDY FAZBEAR'S PIZZERIA                    |  
+                |                  Family Fun. Fresh Pizza.                   |
+                |=============================================================|
+                |                          NEW ORDER                          | 
+                |-------------------------------------------------------------|
+                | House Notice:                                               |
+                | Please remain with your party until your order is complete. | 
+                ---------------------------------------------------------------
+                """);
 
         while (isRunning) {
             System.out.println("""
-                    What would you like to order?
-                    1) Add Pizza
-                    2) Add drink
-                    3) Add Garlic Knots
-                    4) Checkout
-                    0) Cancel
+                    |                                                             |
+                    | 1) Add Pizza                                                |
+                    | 2) Add drink                                                | 
+                    | 3) Add Garlic Knots                                         |
+                    | 4) Checkout                                                 |  
+                    | 0) Cancel                                                   |
+                    ---------------------------------------------------------------
                     """);
-            System.out.print("Choose your option: ");
-            int userChoice = input.nextInt();
-            input.nextLine();
+            String userChoice = askForText("Choose your option: ");
 
             switch (userChoice) {
-                case 1 -> displayAddPizzaScreen();
-                case 2 -> addDrink();
-                case 3 -> addGarlicKnots();
-                case 4 -> {
+                case "1" -> displayAddPizzaScreen();
+                case "2" -> addDrink();
+                case "3" -> addGarlicKnots();
+                case "4" -> {
                     boolean completed = checkout();
                     if (completed) {
                         isRunning = false;
                     }
                 }
-                case 0 -> {
+                case "0" -> {
                     System.out.println("Going back to main screen");
                     isRunning = false;
                     currentOrder = null;
@@ -86,13 +124,26 @@ public class UserInterface {
 
     private void displayAddPizzaScreen() {
 
+        System.out.println("""
+        |=============================================================|
+        |               FREDDY FAZBEAR'S PIZZERIA                     |
+        |=============================================================|
+        |                       ADD PIZZA                             |
+        |-------------------------------------------------------------|
+        | Kitchen Notice:                                             |
+        | All pizzas are prepared fresh. Some even too fresh...       |
+        ---------------------------------------------------------------
+        """);
+
         int size = pickSize();
 
         String crust = pickCrust();
 
-        boolean isStuffed = askYesNo("Would you like stuffed crust? Y/N: ");
+        boolean isStuffed = askYesNo(" Would you like stuffed crust? Y/N: ");
 
-        Pizza newPizza = new Pizza("Custom Pizza", size, crust, isStuffed);
+        System.out.println("---------------------------------------------------------------");
+
+        Pizza newPizza = new Pizza("Freddy Fazbear's Custom Pizza", size, crust, isStuffed);
         addMeats(newPizza);// handles all meat
         addCheese(newPizza);// handles all cheese
         addRegularToppings(newPizza);
@@ -106,19 +157,18 @@ public class UserInterface {
 
         while (size < 8) {
             System.out.println("""
-                    Choose a size:
-                    1) Size 8"
-                    2) Size 12"
-                    3) Size 16"
+                    |                                                             |
+                    | What size would you like?                                   |
+                    | 1) Size 8"                                                  |
+                    | 2) Size 12"                                                 |
+                    | 3) Size 16"                                                 |
                     """);
-            System.out.print("Choose: ");
-            int userChoice = input.nextInt();
-            input.nextLine();
+            String userChoice = askForText(" Choose size: ");
 
             switch (userChoice) {
-                case 1 -> size = 8;
-                case 2 -> size = 12;
-                case 3 -> size = 16;
+                case "1" -> size = 8;
+                case "2" -> size = 12;
+                case "3" -> size = 16;
                 default -> System.out.println("Please select the right choice");
             }
         }
@@ -130,21 +180,20 @@ public class UserInterface {
 
         while (crust == null) {
             System.out.println("""
-                    Choose a crust:
-                    1) Thin
-                    2) Regular
-                    3) Thick
-                    4) Cauliflower
+                    |                                                             |
+                    | What crust would you like?                                  |
+                    | 1) Thin                                                     |
+                    | 2) Regular                                                  |
+                    | 3) Thick                                                    |
+                    | 4) Cauliflower                                              |
                     """);
-            System.out.print("Choose: ");
-            int userChoice = input.nextInt();
-            input.nextLine();
+            String userChoice = askForText(" Choose: ");
 
             switch (userChoice) {
-                case 1 -> crust = "Thin";
-                case 2 -> crust = "Regular";
-                case 3 -> crust = "Thick";
-                case 4 -> crust = "Cauliflower";
+                case "1" -> crust = "Thin";
+                case "2" -> crust = "Regular";
+                case "3" -> crust = "Thick";
+                case "4" -> crust = "Cauliflower";
                 default -> System.out.println("Please select the right choice");
             }
         }
@@ -226,21 +275,19 @@ public class UserInterface {
                     9) Anchovies
                     0) Done
                     """);
-            System.out.print("Choose: ");
-            int userChoice = input.nextInt();
-            input.nextLine();
+            String userChoice = askForText("Choose: ");
 
             switch (userChoice) {
-                case 1 -> pizza.addTopping(new RegularTopping("Onions"));
-                case 2 -> pizza.addTopping(new RegularTopping("Mushrooms"));
-                case 3 -> pizza.addTopping(new RegularTopping("Bell Peppers"));
-                case 4 -> pizza.addTopping(new RegularTopping("Olives"));
-                case 5 -> pizza.addTopping(new RegularTopping("Tomatoes"));
-                case 6 -> pizza.addTopping(new RegularTopping("Spinach"));
-                case 7 -> pizza.addTopping(new RegularTopping("Basil"));
-                case 8 -> pizza.addTopping(new RegularTopping("Pineapple"));
-                case 9 -> pizza.addTopping(new RegularTopping("Anchovies"));
-                case 0 -> addingTopping = false;
+                case "1" -> pizza.addTopping(new RegularTopping("Onions"));
+                case "2" -> pizza.addTopping(new RegularTopping("Mushrooms"));
+                case "3" -> pizza.addTopping(new RegularTopping("Bell Peppers"));
+                case "4" -> pizza.addTopping(new RegularTopping("Olives"));
+                case "5" -> pizza.addTopping(new RegularTopping("Tomatoes"));
+                case "6" -> pizza.addTopping(new RegularTopping("Spinach"));
+                case "7" -> pizza.addTopping(new RegularTopping("Basil"));
+                case "8" -> pizza.addTopping(new RegularTopping("Pineapple"));
+                case "9" -> pizza.addTopping(new RegularTopping("Anchovies"));
+                case "0" -> addingTopping = false;
                 default -> System.out.println("Please select a valid option");
             }
         }
@@ -268,17 +315,15 @@ public class UserInterface {
                 6) Olive Oil
                 0) Done
                 """);
-        System.out.print("Choose: ");
-        int userChoice = input.nextInt();
-        input.nextLine();
+        String userChoice = askForText("Choose: ");
 
         switch (userChoice) {
-            case 1 -> pizza.addSauce("Marinara");
-            case 2 -> pizza.addSauce("Alfredo");
-            case 3 -> pizza.addSauce("Pesto");
-            case 4 -> pizza.addSauce("BBQ");
-            case 5 -> pizza.addSauce("Buffalo");
-            case 6 -> pizza.addSauce("Olive Oil");
+            case "1" -> pizza.addSauce("Marinara");
+            case "2" -> pizza.addSauce("Alfredo");
+            case "3" -> pizza.addSauce("Pesto");
+            case "4" -> pizza.addSauce("BBQ");
+            case "5" -> pizza.addSauce("Buffalo");
+            case "6" -> pizza.addSauce("Olive Oil");
             default -> System.out.println("Please select a valid option");
         }
 
@@ -367,10 +412,21 @@ public class UserInterface {
                 Warm garlic knots served with marinara.
                 Please do not ask why the box is sealed.
                 """);
-        System.out.print("\nHow many Garlic Knots would you like?: ");
-        int quantity = input.nextInt();
-        input.nextLine();
+        int quantity = 0;
+        while (quantity < 1){
+            String quantityInput = askForText("\nHow many Garlic Knots would you like?: ");
+            try {
+                quantity = Integer.parseInt(quantityInput);
 
+                if (quantity < 1) {
+                    System.out.println("Please enter at least 1.");
+                    quantity = 0;
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("We don't reconigze this amount...");
+            }
+        }
         GarlicKnots garlicKnots = new GarlicKnots("Backstage Garlic Knots", quantity);
 
         currentOrder.addProduct(garlicKnots);
