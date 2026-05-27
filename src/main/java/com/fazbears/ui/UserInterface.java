@@ -41,15 +41,15 @@ public class UserInterface {
                       ⡸⠃⠀⠀⠸⣷⡈⡃⣸⠇⠀⠀⠸⣇⢹⠁⣾⠇⠀⠀⠘⢇⠀⠀⠀⠀
                     ⢸⠁⠀⠀⠀⢀⣩⠿⢿⡭⠤⢶⣶⣤⣭⡿⠿⣉⣀⠀⠀⠀  ⠈⡆⠀⠀⠀
                      ⠘⢆⡀⢀⡞⠁⠀⠀⠀⠙⠛⠿⠿⠛⠋⠀⠀⠀⠈⢳⡀⠀⡰⠃⠀⠀⠀
-                       ⢹⢾⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⢠⡗  ⡏⠀⠀⠀⠀⠀
-                       ⠸⡄⢷⣀⠀⠀⠀⠀⠀⣠⣄⠀⠀⠀⠀⠀  ⢀⡾ ⢠⠃⠀⠀⠀⠀⠀
+                       ⢹⢾⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⢠⡗ ⡏⠀⠀⠀⠀⠀
+                       ⠸⡄⢷⣀⠀⠀⠀⠀⠀ ⣠⣄⠀⠀⠀⠀⠀  ⢀⡾⢠⠃⠀⠀⠀⠀⠀
                         ⢣⠈⠫⣹⡒⠚⢉⠉⢉⡉⠉⣉⠓⢒⣏⠝⠁⡞⠀⠀⠀⠀⠀⠀
                          ⠳⡀⠈⠙⠒⠛⠤⠼⠧⠤⠛⠒⠋⠁⣀⠞⠁⠀⠀⠀⠀⠀⠀
                           ⠈⠓⠦⠤⣤⣀⣠⣄⣀⣠⠤⠴⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀
                  Family Fun, Fresh Pizza, Forever Memories
         ---------------------------------------------------------------
         | House Notice:                                               |   
-        | If you hear music from the vents, please notify staff.      |
+        | Birthday parties must be scheduled before dark.             |
         """);
 
         boolean isRunning = true;
@@ -206,12 +206,12 @@ public class UserInterface {
         while (addingMeats) {
             System.out.println("""
                     Add a meat:
-                    1) Pepperoni
-                    2) Sausage
-                    3) Ham
-                    4) Bacon
-                    5) Chicken
-                    6) Meatball
+                    1) Freddy's Pepperoni
+                    2) Backstage Sausage
+                    3) Party Ham
+                    4) Foxy's Bacon
+                    5) Chica's Chicken
+                    6) Parts & Service Meatball
                     0) Done
                     """);
             String userChoice = askForText("Choose: ");
@@ -433,6 +433,13 @@ public class UserInterface {
     }
 
     private boolean checkout() {
+        System.out.println("""
+                ==================================================
+                                    CHECKOUT
+                ==================================================
+                Order Details:
+                --------------------------------------------------
+                """);
         if (currentOrder.getProducts().isEmpty()) {
             System.out.println("Your order is empty.");
             return false;
@@ -440,9 +447,12 @@ public class UserInterface {
         for (Product product : currentOrder.getProducts()) {
             System.out.println(product);
         }
-        System.out.printf("Total: $%.2f", currentOrder.calculateTotal());
+        System.out.println("--------------------------------------------------");
+        System.out.printf("Total: $%.2f%n", currentOrder.calculateTotal());
+        System.out.println("--------------------------------------------------");
 
-        boolean confirm = askYesNo("\nWould you like to confirm your order? Y/N (There will be no way back 🐻)");
+
+        boolean confirm = askYesNo("\nWould you like to confirm your order? Y/N (There will be no way back 🐻) ");
         if (confirm) {
             ReceiptManager.saveReceipt(currentOrder);
             // back home

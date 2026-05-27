@@ -96,16 +96,29 @@ public class Pizza extends Product {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder =new StringBuilder();
-        stringBuilder.append(super.toString());
+        StringBuilder stringBuilder = new StringBuilder();
 
-        for (Topping topping : toppings) {
-            stringBuilder.append("\n - " + topping);
+        stringBuilder.append(String.format("%d\" %s", getSize(), getName()));
+        stringBuilder.append(String.format("%nCrust: %s", getCrustType()));
+        stringBuilder.append(String.format("%nStuffed Crust: %s", isStuffedCrust() ? "Yes" : "No"));
 
-            if (topping.isExtra()) {
-                stringBuilder.append(" (extra)");
+            stringBuilder.append("\nToppings: ");
+            for (int i = 0; i < toppings.size(); i++) {
+                if (i > 0) {
+                    stringBuilder.append(", ");
+                }
+                stringBuilder.append(toppings.get(i));
+                if (toppings.get(i).isExtra()) {
+                    stringBuilder.append(" (extra)");
+                }
             }
+
+        if (sauces.isEmpty()) {
+            stringBuilder.append("\nSauce: None");
+        } else {
+            stringBuilder.append("\nSauce: " + getSauces().get(0));
         }
+        stringBuilder.append(String.format("%nPizza Total: $%.2f", calculatePrice()));
         return stringBuilder.toString();
     }
 }

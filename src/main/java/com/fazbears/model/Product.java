@@ -16,6 +16,6 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return String.format("%s - $%.2f", name, calculatePrice());
+        return String.format("%s - $%.2f", getName(), calculatePrice());
     }
 }
