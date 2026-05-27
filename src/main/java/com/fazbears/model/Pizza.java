@@ -96,6 +96,16 @@ public class Pizza extends Product {
 
     @Override
     public String toString() {
-        return super.toString();
+        StringBuilder stringBuilder =new StringBuilder();
+        stringBuilder.append(super.toString());
+
+        for (Topping topping : toppings) {
+            stringBuilder.append("\n - " + topping);
+
+            if (topping.isExtra()) {
+                stringBuilder.append(" (extra)");
+            }
+        }
+        return stringBuilder.toString();
     }
 }
