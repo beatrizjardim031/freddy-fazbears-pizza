@@ -414,6 +414,7 @@ public class UserInterface {
                 """);
         int quantity = 0;
         while (quantity < 1){
+
             String quantityInput = askForText("\nHow many Garlic Knots would you like?: ");
             try {
                 quantity = Integer.parseInt(quantityInput);
@@ -422,7 +423,6 @@ public class UserInterface {
                     System.out.println("Please enter at least 1.");
                     quantity = 0;
                 }
-
             } catch (NumberFormatException e) {
                 System.out.println("We don't reconigze this amount...");
             }
@@ -433,6 +433,10 @@ public class UserInterface {
     }
 
     private boolean checkout() {
+        if (currentOrder.getProducts().isEmpty()) {
+            System.out.println("Your order is empty.");
+            return false;
+        }
         for (Product product : currentOrder.getProducts()) {
             System.out.println(product);
         }
