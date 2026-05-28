@@ -25,32 +25,32 @@ public class UserInterface {
     //skeletons
     public void start() {
         System.out.println("""
-        ==========================================================
-                       FREDDY FAZBEAR'S PIZZERIA
-        ==========================================================
-                             ⣎⠉⠉⠉⠉⠉⠉⠉⠉⣱⠀⠀⠀⠀⠀⠀⠀⠀⠀          ⠀
-                              ⢻⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                            ⢰⠚⠒⠒⠒⠒⠒⠒⠒⠒⠓⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                   ⢀⣀⣀⣀⠀⢠⡤⢄⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣇⡠⢤⡄⠀⣀⣀⣀⡀
-                  ⡰⠕⠀⠐⠂⠍⡆⠙⣭⣛⡀⠤⠤⠤⠤⠤⠤⠤⠄⢐⣛⣭⠋⢰⡩⠐⠐⠫⢆
-                 ⢣⢄⠀⠀⢀⢠⢛⠞⠁⠀⠉⠉⠁⠒⠒⠒⠒⠈⠉⠉⠀⠈⠳⡛⡄⡀⠀⠀⡠⡜
-                  ⠳⣕⠀⣰⣻⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀⠙⣝⣆⠀⣪⠞⠀
-                     ⠉⢠⠇⠀⠀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⣀⣀⣀⠀⠀⠀⠸⡄⠉⠀⠀⠀
-                      ⢸⠀⠀⢠⡾⠿⠿⠿⣿⣄⠀⠀⣠⣿⠿⠿⠿⢷⡀⠀⠀⡇⠀⠀⠀⠀
-                      ⢸⠀⠀⠈⢀⣶⠛⠛⢦⠙⠀⠐⠋⡶⠛⠛⣷⡀⠀⠀⠀⡇⠀⠀⠀⠀
-                      ⡸⠃⠀⠀⠸⣷⡈⡃⣸⠇⠀⠀⠸⣇⢹⠁⣾⠇⠀⠀⠘⢇⠀⠀⠀⠀
-                    ⢸⠁⠀⠀⠀⢀⣩⠿⢿⡭⠤⢶⣶⣤⣭⡿⠿⣉⣀⠀⠀⠀  ⠈⡆⠀⠀⠀
-                     ⠘⢆⡀⢀⡞⠁⠀⠀⠀⠙⠛⠿⠿⠛⠋⠀⠀⠀⠈⢳⡀⠀⡰⠃⠀⠀⠀
-                       ⢹⢾⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⢠⡗ ⡏⠀⠀⠀⠀⠀
-                       ⠸⡄⢷⣀⠀⠀⠀⠀⠀ ⣠⣄⠀⠀⠀⠀⠀  ⢀⡾⢠⠃⠀⠀⠀⠀⠀
-                        ⢣⠈⠫⣹⡒⠚⢉⠉⢉⡉⠉⣉⠓⢒⣏⠝⠁⡞⠀⠀⠀⠀⠀⠀
-                         ⠳⡀⠈⠙⠒⠛⠤⠼⠧⠤⠛⠒⠋⠁⣀⠞⠁⠀⠀⠀⠀⠀⠀
-                          ⠈⠓⠦⠤⣤⣀⣠⣄⣀⣠⠤⠴⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀
-                 Family Fun, Fresh Pizza, Forever Memories
-        ---------------------------------------------------------------
-        | House Notice:                                               |
-        | Birthday parties must be scheduled before dark.             |
-        ---------------------------------------------------------------""");
+                ==========================================================
+                               FREDDY FAZBEAR'S PIZZERIA
+                ==========================================================
+                                     ⣎⠉⠉⠉⠉⠉⠉⠉⠉⣱⠀⠀⠀⠀⠀⠀⠀⠀⠀          ⠀
+                                      ⢻⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                                    ⢰⠚⠒⠒⠒⠒⠒⠒⠒⠒⠓⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                           ⢀⣀⣀⣀⠀⢠⡤⢄⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣇⡠⢤⡄⠀⣀⣀⣀⡀
+                          ⡰⠕⠀⠐⠂⠍⡆⠙⣭⣛⡀⠤⠤⠤⠤⠤⠤⠤⠄⢐⣛⣭⠋⢰⡩⠐⠐⠫⢆
+                         ⢣⢄⠀⠀⢀⢠⢛⠞⠁⠀⠉⠉⠁⠒⠒⠒⠒⠈⠉⠉⠀⠈⠳⡛⡄⡀⠀⠀⡠⡜
+                          ⠳⣕⠀⣰⣻⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀⠙⣝⣆⠀⣪⠞⠀
+                             ⠉⢠⠇⠀⠀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⣀⣀⣀⠀⠀⠀⠸⡄⠉⠀⠀⠀
+                              ⢸⠀⠀⢠⡾⠿⠿⠿⣿⣄⠀⠀⣠⣿⠿⠿⠿⢷⡀⠀⠀⡇⠀⠀⠀⠀
+                              ⢸⠀⠀⠈⢀⣶⠛⠛⢦⠙⠀⠐⠋⡶⠛⠛⣷⡀⠀⠀⠀⡇⠀⠀⠀⠀
+                              ⡸⠃⠀⠀⠸⣷⡈⡃⣸⠇⠀⠀⠸⣇⢹⠁⣾⠇⠀⠀⠘⢇⠀⠀⠀⠀
+                            ⢸⠁⠀⠀⠀⢀⣩⠿⢿⡭⠤⢶⣶⣤⣭⡿⠿⣉⣀⠀⠀⠀  ⠈⡆⠀⠀⠀
+                             ⠘⢆⡀⢀⡞⠁⠀⠀⠀⠙⠛⠿⠿⠛⠋⠀⠀⠀⠈⢳⡀⠀⡰⠃⠀⠀⠀
+                               ⢹⢾⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⢠⡗ ⡏⠀⠀⠀⠀⠀
+                               ⠸⡄⢷⣀⠀⠀⠀⠀⠀ ⣠⣄⠀⠀⠀⠀⠀  ⢀⡾⢠⠃⠀⠀⠀⠀⠀
+                                ⢣⠈⠫⣹⡒⠚⢉⠉⢉⡉⠉⣉⠓⢒⣏⠝⠁⡞⠀⠀⠀⠀⠀⠀
+                                 ⠳⡀⠈⠙⠒⠛⠤⠼⠧⠤⠛⠒⠋⠁⣀⠞⠁⠀⠀⠀⠀⠀⠀
+                                  ⠈⠓⠦⠤⣤⣀⣠⣄⣀⣠⠤⠴⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀
+                         Family Fun, Fresh Pizza, Forever Memories
+                ---------------------------------------------------------------
+                | House Notice:                                               |
+                | Birthday parties must be scheduled before dark.             |
+                ---------------------------------------------------------------""");
 
 
         boolean isRunning = true;
@@ -63,7 +63,7 @@ public class UserInterface {
                     |0) Exit                                                      |
                     ===============================================================
                     """);
-            System.out.print("Choose your option: ");
+            System.out.print("Make your selection: ");
             String userChoice = input.nextLine();
 
             switch (userChoice) {
@@ -88,7 +88,7 @@ public class UserInterface {
                             """);
                     isRunning = false;
                 }
-                default -> System.out.println("Please select the right choice");
+                default -> printInvalidChoice();
             }
         }
     }
@@ -112,30 +112,34 @@ public class UserInterface {
         while (isRunning) {
             System.out.println("""
                     | 1) Add Pizza                                                |
-                    | 2) Add drink                                                | 
-                    | 3) Add Garlic Knots                                         |
-                    | 4) Checkout                                                 |  
+                    | 2) Signature Pizzas                                         |
+                    | 3) Add Drink                                                | 
+                    | 4) Add Garlic Knots                                         |
+                    | 5) Remove Item                                              |
+                    | 6) Checkout                                                 |  
                     | 0) Cancel                                                   |
                     ---------------------------------------------------------------
                     """);
-            String userChoice = askForText("Choose your option: ");
+            String userChoice = askForText(" Make your selection: ");
 
             switch (userChoice) {
-                case "1" -> displaySignaturePizzaScreen();
-                case "2" -> addDrink();
-                case "3" -> addGarlicKnots();
-                case "4" -> {
+                case "1" -> displayBuildYourOwnPizzaScreen();
+                case "2" -> displaySignaturePizzaScreen();
+                case "3" -> addDrink();
+                case "4" -> addGarlicKnots();
+                case "5" -> removeItemFromOrder();
+                case "6" -> {
                     boolean completed = checkout();
                     if (completed) {
                         isRunning = false;
                     }
                 }
                 case "0" -> {
-                    System.out.println("Going back to main screen");
+                    System.out.println(" Going back to main screen");
                     isRunning = false;
                     currentOrder = null;
                 }
-                default -> System.out.println("Please select the right choice");
+                default -> printInvalidChoice();
             }
         }
     }
@@ -145,74 +149,82 @@ public class UserInterface {
 
         while (isRunning) {
             System.out.println("""
-                 =============================================================
-                |                        SIGNATURE PIZZAS                     |
-                |=============================================================|
-                |                                                             |
-                | 1) Freddy's Classic Party Pizza                             |
-                |   12" Regular Crust                                         |
-                |   Pepperoni, Mozzarella, Parmesan, Tomatoes, Basil          |
-                |   Sauce: Marinara                                           |
-                |                                                             |
-                |   Description:                                              |
-                |   A classic birthday-party pizza served the Fazbear way.    |
-                |   House Notice: The first slice is always missing           |
-                |   by the time it reaches the table.                         |
-                |                                                             | \s
-                | 2) Chica's Kitchen Feast                                    |
-                |   16" Thick Crust                                           |
-                |   Chicken, Bacon, Mozzarella, Ricotta                       |
-                |   Onions, Mushrooms, Bell Peppers, Spinach                  |
-                |   Sauce: Alfredo                                            |
-                |                                                             |
-                |   Description:                                              |
-                |   A warm, heavy kitchen favorite with creamy sauce          |
-                |   and extra toppings.                                       |
-                |   House Notice: If you hear singing from the kitchen,       |
-                |   do not sing back.                                         |
-                |                                                             |
-                | 3) Golden Freddy's After-Hours Special                      |
-                |   12" Thin Crust                                            |
-                |   Meatball, Sausage, Mozzarella, Goat Cheese                |\s
-                |   Olives, Mushrooms, Basil                                  |\s
-                |   Sauce: Order and find out...                              | \s
-                |                                                             |  \s
-                |   Description:                                              | \s
-                |   A quiet after-hours pizza with earthy toppings            |
-                |   and a mystery finish.                                     |
-                |   House Notice: The receipt says you ordered this before    |\s
-                |                                                             |
-                |4) Build Your Own Pizza                                      |                                         \s
-                |0) Back                                                      | \s
-               \s""");
+                      =============================================================
+                     |                        SIGNATURE PIZZAS                     |
+                     |=============================================================|
+                     |                                                             |
+                     | 1) Freddy's Classic Party Pizza                             |
+                     |   12" Regular Crust                                         |
+                     |   Pepperoni, Mozzarella, Parmesan, Tomatoes, Basil          |
+                     |   Sauce: Marinara                                           |
+                     |                                                             |
+                     |   Description:                                              |
+                     |   A classic birthday-party pizza served the Fazbear way.    |
+                     |   House Notice: The first slice is always missing           |
+                     |   by the time it reaches the table.                         |
+                     |                                                             | \s
+                     | 2) Chica's Kitchen Feast                                    |
+                     |   16" Thick Crust                                           |
+                     |   Chicken, Bacon, Mozzarella, Ricotta                       |
+                     |   Onions, Mushrooms, Bell Peppers, Spinach                  |
+                     |   Sauce: Alfredo                                            |
+                     |                                                             |
+                     |   Description:                                              |
+                     |   A warm, heavy kitchen favorite with creamy sauce          |
+                     |   and extra toppings.                                       |
+                     |   House Notice: If you hear singing from the kitchen,       |
+                     |   do not sing back.                                         |
+                     |                                                             |
+                     | 3) Golden Freddy's After-Hours Special                      |
+                     |   12" Thin Crust                                            |
+                     |   Meatball, Sausage, Mozzarella, Goat Cheese                |\s
+                     |   Olives, Mushrooms, Basil                                  |\s
+                     |   Sauce: Order and find out...                              | \s
+                     |                                                             |  \s
+                     |   Description:                                              | \s
+                     |   A quiet after-hours pizza with earthy toppings            |
+                     |   and a mystery finish.                                     |
+                     |   House Notice: The receipt says you ordered this before    |\s
+                     |                                                             |
+                     |0) Back                                                      | \s
+                    \s""");
 
-            String userChoice = askForText("Choose: ");
+            String userChoice = askForText(" Make your selection: ");
             System.out.println("---------------------------------------------------------------");
 
             switch (userChoice) {
-                case "1" -> customizeSignaturePizza(new FreddysClassicPartyPizza());
-                case "2" -> customizeSignaturePizza(new ChicasKitchenFeast());
-                case "3" -> customizeSignaturePizza(new GoldenFreddysAfterHoursSpecial());
-                case "4" -> displayAddPizzaScreen();
-                case "0" -> {
-                    System.out.println("Going back to main page");
+                case "1" -> {
+                    customizeSignaturePizza(new FreddysClassicPartyPizza());
                     isRunning = false;
                 }
+                case "2" -> {
+                    customizeSignaturePizza(new ChicasKitchenFeast());
+                    isRunning = false;
+                }
+                case "3" -> {
+                    customizeSignaturePizza(new GoldenFreddysAfterHoursSpecial());
+                    isRunning = false;
+                }
+                case "0" -> {
+                    System.out.println(" Going back to main page");
+                    isRunning = false;
+                }
+                default -> printInvalidChoice();
             }
         }
     }
 
-    private void displayAddPizzaScreen() {
+    private void displayBuildYourOwnPizzaScreen() {
 
         System.out.println("""
-        |=============================================================|
-        |               FREDDY FAZBEAR'S PIZZERIA                     |
-        |=============================================================|
-        |                       ADD PIZZA                             |
-        |-------------------------------------------------------------|
-        | Kitchen Notice:                                             |
-        | All pizzas are prepared fresh. Some even too fresh...       |
-        |                                                             |""");
+                |=============================================================|
+                |               FREDDY FAZBEAR'S PIZZERIA                     |
+                |=============================================================|
+                |                       ADD PIZZA                             |
+                |-------------------------------------------------------------|
+                | Kitchen Notice:                                             |
+                | All pizzas are prepared fresh. Some even too fresh...       |
+                |                                                             |""");
 
         int size = pickSize();
 
@@ -241,13 +253,13 @@ public class UserInterface {
                     | 2) Size 12"                                                 |
                     | 3) Size 16"                                                 |
                     """);
-            String userChoice = askForText(" Choose size: ");
+            String userChoice = askForText(" Choose your pizza size: ");
 
             switch (userChoice) {
                 case "1" -> size = 8;
                 case "2" -> size = 12;
                 case "3" -> size = 16;
-                default -> System.out.println("Please select the right choice");
+                default -> printInvalidChoice();
             }
         }
         return size;
@@ -272,7 +284,7 @@ public class UserInterface {
                 case "2" -> crust = "Regular";
                 case "3" -> crust = "Thick";
                 case "4" -> crust = "Cauliflower";
-                default -> System.out.println("Please select the right choice");
+                default -> printInvalidChoice();
             }
         }
         return crust;
@@ -303,7 +315,7 @@ public class UserInterface {
                 case "5" -> addPremiumTopping(new Meat("Chicken"), pizza);
                 case "6" -> addPremiumTopping(new Meat("Meatball"), pizza);
                 case "0" -> addingMeats = false;
-                default -> System.out.println("Please select a valid option");
+                default -> printInvalidChoice();
             }
         }
     }
@@ -331,7 +343,7 @@ public class UserInterface {
                 case "4" -> addPremiumTopping(new Cheese("Goat Cheese"), pizza);
                 case "5" -> addPremiumTopping(new Cheese("Buffalo Cheese"), pizza);
                 case "0" -> addingCheese = false;
-                default -> System.out.println("Please select a valid option");
+                default -> printInvalidChoice();
             }
         }
     }
@@ -366,37 +378,45 @@ public class UserInterface {
                 case "8" -> pizza.addTopping(new RegularTopping("Pineapple"));
                 case "9" -> pizza.addTopping(new RegularTopping("Anchovies"));
                 case "0" -> addingTopping = false;
-                default -> System.out.println("Please select a valid option");
+                default -> printInvalidChoice();
             }
         }
     }
 
-    private void removeToppingFromPizza(Pizza pizza) {
+    private void removeToppingFromPizza(Pizza pizza) { // this method takes a Pizza object so it can modify its toppings list directly
         boolean isRemoving = true;
+        if (pizza.getToppings().isEmpty()) {
+            System.out.println("There are no toppings to remove.");
+            return;
+        }
+
         while (isRemoving) {
-            for (int i = 0; i < pizza.getToppings().size(); i++) {
+
+            for (int i = 0; i < pizza.getToppings().size(); i++) { //  loop through toppings list, print each one with a number.
                 System.out.println((i + 1) + ") " + pizza.getToppings().get(i));
+                //i + 1 because lists start at 0 but humans count from 1 — so topping at index 0 shows as 1
             }
             // ask user for choice
             try {
-                String userChoice = askForText("Which to remove?: ");
+                String userChoice = askForText("Which to remove? (Type 0 if you don't want any topping removed): ");
                 if (userChoice.equals("0")) {
                     isRemoving = false;
-                } else {
+                } else { // convert the userChoice from String to int. subtract 1 because they typed 1 but the list index is 0
                     int index = Integer.parseInt(userChoice) - 1;
-                    if (index >= 0 && index < pizza.getToppings().size()) {
+                    if (index >= 0 && index < pizza.getToppings().size()) { // make sure their number is in range, then grab that topping and remove it
                         pizza.removeTopping(pizza.getToppings().get(index));
                     } else {
                         System.out.println("Invalid choice!");
                     }
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Not a number.");;
+                System.out.println("Not a number.");
             }
         }
     }
 
     private void addSauce(Pizza pizza) {
+        boolean isChoosingSauce = true;
 
         System.out.println("""
                 What sauce would you like on your pizza?
@@ -406,18 +426,40 @@ public class UserInterface {
                 4) BBQ
                 5) Buffalo
                 6) Olive Oil
-                0) Done
+                0) No sauce
                 """);
         String userChoice = askForText("Choose: ");
 
         switch (userChoice) {
-            case "1" -> pizza.addSauce("Marinara");
-            case "2" -> pizza.addSauce("Alfredo");
-            case "3" -> pizza.addSauce("Pesto");
-            case "4" -> pizza.addSauce("BBQ");
-            case "5" -> pizza.addSauce("Buffalo");
-            case "6" -> pizza.addSauce("Olive Oil");
-            default -> System.out.println("Please select a valid option");
+            case "1" -> {
+                pizza.addSauce("Marinara");
+                isChoosingSauce = false;
+            }
+            case "2" -> {
+                pizza.addSauce("Alfredo");
+                isChoosingSauce = false;
+            }
+            case "3" -> {
+                pizza.addSauce("Pesto");
+                isChoosingSauce = false;
+            }
+            case "4" -> {
+                pizza.addSauce("BBQ");
+                isChoosingSauce = false;
+            }
+            case "5" -> {
+                pizza.addSauce("Buffalo");
+                isChoosingSauce = false;
+            }
+            case "6" -> {
+                pizza.addSauce("Olive Oil");
+                isChoosingSauce = false;
+            }
+            case "0" -> {
+                System.out.println("No sauce added.");
+                isChoosingSauce = false;
+            }
+            default -> printInvalidChoice();
         }
     }
 
@@ -429,7 +471,7 @@ public class UserInterface {
         currentOrder.addProduct(newDrink);
     }
 
-    private String pickDrinkSize () {
+    private String pickDrinkSize() {
         String size = null;
 
         while (size == null) {
@@ -445,7 +487,7 @@ public class UserInterface {
                 case "1" -> size = "Small";
                 case "2" -> size = "Medium";
                 case "3" -> size = "Large";
-                default -> System.out.println("Please select the right choice");
+                default -> printInvalidChoice();
             }
 
         }
@@ -492,7 +534,7 @@ public class UserInterface {
                     flavor = "Golden Cup Mystery Soda";
                     System.out.println("Weird... The system says you ordered it before.");
                 }
-                default -> System.out.println("Please select the right choice");
+                default -> printInvalidChoice();
             }
         }
         return flavor;
@@ -505,7 +547,7 @@ public class UserInterface {
                 Please do not ask why the box is sealed.
                 """);
         int quantity = 0;
-        while (quantity < 1){
+        while (quantity < 1) {
 
             String quantityInput = askForText("\nHow many Garlic Knots would you like?: ");
             try {
@@ -516,7 +558,7 @@ public class UserInterface {
                     quantity = 0;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("We don't reconigze this amount...");
+                System.out.println("[!] Quantity must be at least 1. Empty boxes are for lost items only...");
             }
         }
         GarlicKnots garlicKnots = new GarlicKnots("Backstage Garlic Knots", quantity);
@@ -537,10 +579,6 @@ public class UserInterface {
             return false;
         }
 
-        if (!isValidOrder()) {
-            System.out.println("You need to order at least a Drink or some GarlicKnots");
-            return false;
-        }
 
         for (Product product : currentOrder.getProducts()) {
             System.out.println(product);
@@ -551,7 +589,7 @@ public class UserInterface {
         System.out.println("--------------------------------------------------");
 
 
-        boolean confirm = askYesNo("\nWould you like to confirm your order? Y/N (There will be no way back 🐻) ");
+        boolean confirm = askYesNo("\nConfirm your order? Y/N (Once the receipt prints, the kitchen remembers): ");
         if (confirm) {
             ReceiptManager.saveReceipt(currentOrder);
             // back home
@@ -564,7 +602,7 @@ public class UserInterface {
     }
 
 
-// helper methods
+    // helper methods
     private void addPremiumTopping(Topping topping, Pizza pizza) { // refactored premium toppings into one single method
         String question = String.format("Would you like extra %s? Y/N: ", topping.getName());
         boolean isExtra = askYesNo(question);
@@ -574,30 +612,17 @@ public class UserInterface {
         pizza.addTopping(topping);
     }
 
-    private boolean isValidOrder() { // count pizza
-        int pizzaCount = 0;
-        boolean hasDrinkOrKnots = false;
-        for (Product product : currentOrder.getProducts()) {
-            if (product instanceof Pizza) pizzaCount++;
-            if (product instanceof Drink || product instanceof GarlicKnots) hasDrinkOrKnots = true;
-
-        }
-        if (pizzaCount == 0 && !hasDrinkOrKnots) {
-            return false;
-        }
-        return true;
-    }
 
     private void customizeSignaturePizza(Pizza pizza) {
         boolean isRunning = true;
 
         while (isRunning) {
             System.out.println("""
-                | 1) Add Toppings
-                | 2) Remove Toppings
-                | 3) Done (Add to Order)
-                """);
-            String userChoice = askForText("Choose: ");
+                    | 1) Add Toppings
+                    | 2) Remove Toppings
+                    | 3) Done (Add to Order)
+                    """);
+            String userChoice = askForText("Make your selection: ");
 
             switch (userChoice) {
                 case "1" -> displayAddToppingsMenu(pizza);
@@ -606,6 +631,7 @@ public class UserInterface {
                     currentOrder.addProduct(pizza);
                     isRunning = false;
                 }
+                default -> System.out.println("[!] Invalid choice. Management cannot process that request.");
             }
         }
     }
@@ -620,7 +646,7 @@ public class UserInterface {
                     |   - 3) Add Regular Topping
                     |   - 0) Back
                     """);
-            String userChoice = askForText("Choose: ");
+            String userChoice = askForText("Make your selection: ");
 
             switch (userChoice) {
                 case "1" -> addMeats(pizza);
@@ -630,6 +656,7 @@ public class UserInterface {
                     System.out.println("Going back to customizing your pizza");
                     isRunning = false;
                 }
+                default -> printInvalidChoice();
             }
         }
     }
@@ -647,9 +674,69 @@ public class UserInterface {
             System.out.printf(question);
             userInput = input.nextLine();
         }
-
         return userInput.equalsIgnoreCase("y");
+    }
+
+    private void printInvalidChoice() {
+        System.out.println(" [!] Invalid choice. The kitchen did not understand your order.");
+    }
+
+    private void removeItemFromOrder() {
+        // check if order is empty
+        if (currentOrder.getProducts().isEmpty()) {
+            System.out.println("There are no items to remove.");
+            return;
+        }
+        boolean isRunning = true;
+
+        while (isRunning) {
+            System.out.println("""
+                      ==================================================
+                                       REMOVE ITEM
+                      ==================================================
+                    """);
+
+            for (int i = 0; i < currentOrder.getProducts().size(); i++) { //  loop through products list, print each one with a number.
+                System.out.println((i + 1) + ") " + currentOrder.getProducts().get(i));
+                //i + 1 because lists start at 0, but we count from 1 — so product at index 0 shows as 1
+            }
+
+            System.out.println("0) Back");
+
+            String userChoice = askForText("What item would you like to remove? Type 0 to go back: ");
+            try {
+                if (userChoice.equals("0")) {
+                    isRunning = false;
+                } else { // convert the userChoice from String to int. subtract 1 because they typed 1 but the list index is 0
+
+                    int index = Integer.parseInt(userChoice) - 1;
+
+                    if (index >= 0 && index < currentOrder.getProducts().size()) { // make sure their number is in range, then grab that product and remove it
+                        Product selectedProduct = currentOrder.getProducts().get(index);
+                        currentOrder.removeProduct(selectedProduct);
+
+                        System.out.println("Removed: " + selectedProduct);
+
+                        if (currentOrder.getProducts().isEmpty()) {
+                            System.out.println("The order is empty now...");
+                            isRunning = false;
+                        }
+                    }
+                    else {
+                        System.out.println("Invalid choice!");
+                    }
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Not a number.");
+            }
+
+        }
 
     }
+
+
+//    private void loading () {
+//
+//    }
 
 }
