@@ -18,8 +18,8 @@ public class Pizza extends Product {
         this.crustType = crustType;
         this.toppings = new ArrayList<>();
         this.isStuffedCrust = isStuffedCrust;
-        List<String> sauces = new ArrayList<>();
-        List<String> extras = new ArrayList<>();
+        this.sauces = new ArrayList<>();
+        this.extras = new ArrayList<>();
     }
 
     public int getSize() {
@@ -66,6 +66,10 @@ public class Pizza extends Product {
         toppings.add(topping);
     }
 
+    public void removeTopping(Topping topping) {
+        toppings.remove(topping);
+    }
+
     public void addSauce(String sauce) {
         sauces.add(sauce);
     }
@@ -96,6 +100,29 @@ public class Pizza extends Product {
 
     @Override
     public String toString() {
-        return super.toString();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(String.format("%d\" %s", getSize(), getName()));
+        stringBuilder.append(String.format("%nCrust: %s", getCrustType()));
+        stringBuilder.append(String.format("%nStuffed Crust: %s", isStuffedCrust() ? "Yes" : "No"));
+
+            stringBuilder.append("\nToppings: ");
+            for (int i = 0; i < toppings.size(); i++) {
+                if (i > 0) {
+                    stringBuilder.append(", ");
+                }
+                stringBuilder.append(toppings.get(i));
+                if (toppings.get(i).isExtra()) {
+                    stringBuilder.append(" (extra)");
+                }
+            }
+
+        if (sauces.isEmpty()) {
+            stringBuilder.append("\nSauce: None");
+        } else {
+            stringBuilder.append("\nSauce: " + getSauces().get(0));
+        }
+        stringBuilder.append(String.format("%nPizza Total: $%.2f", calculatePrice()));
+        return stringBuilder.toString();
     }
 }

@@ -17,13 +17,14 @@ public abstract class Topping {
         return isExtra;
     }
 
+    public void setExtra(boolean extra) {
+        isExtra = extra;
+    }
+
     public abstract double calculatePrice (int pizzaSize);
 
     @Override
     public String toString() {
-        return "Topping{" +
-                "name='" + name + '\'' +
-                ", isExtra=" + isExtra +
-                '}';
+        return name;
     }
 }
