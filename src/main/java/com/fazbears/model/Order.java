@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private List<Product> products;
-    private LocalDateTime orderDate;
+    private final List<Product> products;
+    private final LocalDateTime orderDate;
 
     public Order() {
         this.products = new ArrayList<>();

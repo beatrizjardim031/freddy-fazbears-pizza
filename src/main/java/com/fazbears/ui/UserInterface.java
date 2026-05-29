@@ -7,19 +7,11 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    private Scanner input;
+    private final Scanner input;
     private Order currentOrder;
 
     public UserInterface() {
         this.input = new Scanner(System.in);
-    }
-
-    public Scanner getInput() {
-        return input;
-    }
-
-    public Order getCurrentOrder() {
-        return currentOrder;
     }
 
     //skeletons

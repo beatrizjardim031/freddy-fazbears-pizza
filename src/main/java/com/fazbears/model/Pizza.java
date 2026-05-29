@@ -9,8 +9,8 @@ public class Pizza extends Product {
     private String crustType;
     private List<Topping> toppings;
     private boolean isStuffedCrust;
-    private List<String> sauces;
-    private List<String> extras;
+    private final List<String> sauces;
+    private final List<String> extras;
 
     public Pizza(String name, int size, String crustType, boolean isStuffedCrust) {
         super(name);
@@ -26,16 +26,8 @@ public class Pizza extends Product {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public String getCrustType() {
         return crustType;
-    }
-
-    public void setCrustType(String crustType) {
-        this.crustType = crustType;
     }
 
     public List<Topping> getToppings() {
@@ -50,16 +42,8 @@ public class Pizza extends Product {
         return isStuffedCrust;
     }
 
-    public void setStuffedCrust(boolean stuffedCrust) {
-        isStuffedCrust = stuffedCrust;
-    }
-
     public List<String> getSauces() {
         return sauces;
-    }
-
-    public List<String> getExtras() {
-        return extras;
     }
 
     public boolean addTopping(Topping topping) {
@@ -83,13 +67,9 @@ public class Pizza extends Product {
         sauces.add(sauce);
     }
 
-    public void addExtra(String extra) {
-        extras.add(extra);
-    }
-
     @Override
     public double calculatePrice() {
-        double total = 0;
+        double total;
         switch (size) {
             case 8 -> total = 8.50;
             case 12 -> total = 12.00;
@@ -129,7 +109,7 @@ public class Pizza extends Product {
         if (sauces.isEmpty()) {
             stringBuilder.append("\nSauce: None");
         } else {
-            stringBuilder.append("\nSauce: " + getSauces().get(0));
+            stringBuilder.append("\nSauce: ").append(getSauces().get(0));
         }
         stringBuilder.append(String.format("%nPizza Total: $%.2f", calculatePrice()));
         return stringBuilder.toString();
