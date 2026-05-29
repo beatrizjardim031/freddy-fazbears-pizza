@@ -10,7 +10,7 @@ public class ReceiptManager {
 
     public static void saveReceipt (Order order) {
         File receiptsFolder = new File("receipts");
-        boolean folderCreated = receiptsFolder.mkdirs(); //this method creates the folder if it doesn't exist, like the Git Bash method
+        receiptsFolder.mkdirs(); //this method creates the folder if it doesn't exist, like the Git Bash method
 
         // defines the date/time pattern for the filename
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
