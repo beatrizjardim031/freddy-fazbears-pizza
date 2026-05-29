@@ -7,7 +7,7 @@ public class Pizza extends Product {
     //fields
     private final int size;
     private final String crustType;
-    private List<Topping> toppings;
+    private final List<Topping> toppings;
     private final boolean isStuffedCrust;
     private final List<String> sauces;
 
@@ -30,10 +30,6 @@ public class Pizza extends Product {
 
     public List<Topping> getToppings() {
         return toppings;
-    }
-
-    public void setToppings(List<Topping> toppings) {
-        this.toppings = toppings;
     }
 
     public boolean isStuffedCrust() {
@@ -115,19 +111,19 @@ public class Pizza extends Product {
 
 
         // Start the toppings line.
-        // The loop below will add each topping to this same line.
-            stringBuilder.append("\nToppings: ");
-            for (int i = 0; i < toppings.size(); i++) {
-                // Add a comma before every topping except the first one.
-                // This keeps the toppings readable
-                if (i > 0) {
-                    stringBuilder.append(", ");
-                }
+        // Each topping is printed on its own line
+            stringBuilder.append("\nToppings:");
 
-                // Add the topping name.
-                stringBuilder.append(toppings.get(i));
-                if (toppings.get(i).isExtra()) {
-                    stringBuilder.append(" (extra)");
+            if (toppings.isEmpty()) {
+                stringBuilder.append(" None");
+            } else {
+                for (Topping topping : toppings) {
+                    stringBuilder.append("\n  - "); // This keeps the toppings readable
+                    stringBuilder.append(topping);
+
+                    if (topping.isExtra()) {
+                        stringBuilder.append(" (extra)");
+                    }
                 }
             }
 
@@ -136,7 +132,7 @@ public class Pizza extends Product {
         if (sauces.isEmpty()) {
             stringBuilder.append("\nSauce: None");
         } else {
-            stringBuilder.append("\nSauce: ").append(getSauces().get(0));
+            stringBuilder.append("\n\nSauce: ").append(getSauces().get(0));
         }
         stringBuilder.append(String.format("%nPizza Total: $%.2f", calculatePrice()));
         return stringBuilder.toString();

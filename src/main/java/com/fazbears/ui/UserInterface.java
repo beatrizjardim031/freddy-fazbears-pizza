@@ -641,24 +641,28 @@ public class UserInterface {
                        |  Please do not ask why the box is sealed. |
                        ---------------------------------------------
                 """);
-        int quantity = 0;
-        while (quantity < 1) {
+        final int MAX_GARLIC_KNOTS = 20; // prevents unrealistic quantities and extremely large totals
+        boolean isAddingGarlicKnots = true;
+
+        while (isAddingGarlicKnots) {
 
             String quantityInput = askForText("\n How many Garlic Knots would you like?: ");
             try {
-                quantity = Integer.parseInt(quantityInput);
+                int quantity = Integer.parseInt(quantityInput);
 
                 if (quantity < 1) {
-                    System.out.println(" \nPlease enter at least 1.");
-                    quantity = 0;
+                    System.out.println(" Please enter at least 1 garlic knot.");
+                } else if (quantity > MAX_GARLIC_KNOTS) {
+                    System.out.println(" Please order " + MAX_GARLIC_KNOTS + " or fewer garlic knots at a time.");
+                } else {
+                    currentOrder.addProduct(new GarlicKnots("Backstage Garlic Knots", quantity));
+                    System.out.println(" Garlic knots added to your order.\n");
+                    isAddingGarlicKnots = false;
                 }
             } catch (NumberFormatException e) {
-                System.out.println(" \n[!] Quantity must be at least 1. Empty boxes are for lost items only...");
+                System.out.println(" Enter a valid number.");
             }
         }
-        GarlicKnots garlicKnots = new GarlicKnots("Backstage Garlic Knots", quantity);
-
-        currentOrder.addProduct(garlicKnots);
     }
 
     // Shared helper for meat and cheese toppings.

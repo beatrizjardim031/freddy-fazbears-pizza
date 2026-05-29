@@ -1,7 +1,6 @@
 package com.fazbears.data;
 
 import com.fazbears.model.Order;
-import com.fazbears.model.Product;
 
 import java.io.*;
 import java.time.format.DateTimeFormatter;
@@ -21,18 +20,12 @@ public class ReceiptManager {
             FileWriter fileWriter = new FileWriter("receipts/" + fileName);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-            // loops through each product and writes it to the file
-            for (Product product : order.getProducts()){
-                bufferedWriter.write(product.toString()); // writes the product name and price
-
-                bufferedWriter.newLine(); // moves to the next line
-            }
-            bufferedWriter.write(String.format("Total: $%.2f%n", order.calculateTotal())); // writes the total price at the bottom
-
+            // Order.toString() already formats the receipt with date, item numbers, dividers, and total.
+            bufferedWriter.write(order.toString());
 
             bufferedWriter.close();
         } catch (IOException e) {
-            System.out.println("Error. Could not load this file.");
+            System.out.println("Error. Could not save this receipt file.");
         }
 
     }

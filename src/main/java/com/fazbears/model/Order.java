@@ -52,8 +52,6 @@ public class Order {
         builder.append("Order Date: ").append(formattedOrderDate).append("\n");
         builder.append(" ------------------------------------------------------------- \n");
 
-//        builder.append(String.format("%-15s %s%n", "Order Date:", formattedOrderDate));
-
         if (products.isEmpty()) {
             builder.append(" No items in order.\n");
         } else {
