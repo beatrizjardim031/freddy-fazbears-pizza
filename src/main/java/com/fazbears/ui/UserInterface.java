@@ -8,7 +8,15 @@ import java.util.Scanner;
 public class UserInterface {
 
     private final Scanner input;
+
+     // Stores the order currently being built.
+     // It is created when the user starts a new order.
     private Order currentOrder;
+
+     // Handles the console user interface for the Fazbear pizza ordering app.
+     // This class is responsible for showing menus, reading user input,
+     // calling model classes like Order, Pizza, Drink, and GarlicKnots,
+      // and guiding the customer through the ordering flow.
 
     public UserInterface() {
         this.input = new Scanner(System.in);
@@ -61,7 +69,7 @@ public class UserInterface {
                      ============================================================
                     \s""");
             String userChoice = askForText(" Make your selection: ");
-            if (userChoice.isBlank()) {
+            if (userChoice.isBlank()) { // If the user just presses Enter, ignore it and show the menu again.
                 continue;
             }
 
@@ -76,7 +84,12 @@ public class UserInterface {
         }
     }
 
+    // Displays the main order menu after the user starts a new order.
+   // This is where the customer can build a pizza, choose a signature pizza,
+   // add drinks or garlic knots, remove items, checkout, or cancel the order.
     public void displayOrderScreen() {
+
+        // Start a fresh order every time the customer chooses New Order.
         currentOrder = new Order();
 
         boolean isRunning = true;
@@ -128,6 +141,9 @@ public class UserInterface {
         }
     }
 
+    // Displays the optional bonus signature pizza menu.
+    // Each signature pizza is a pre-built Pizza child class,
+    // the customer can still customize it before adding it to the order ***
     private void displaySignaturePizzaScreen() {
         boolean isRunning = true;
 
@@ -227,6 +243,9 @@ public class UserInterface {
 
     }
 
+    // Displays the current order details and asks the user to confirm.
+   // If the user confirms, a receipt file is saved and the order is completed.
+   // If the user says no, the order is kept and they return to the order menu.
     private boolean checkout() {
         System.out.println("""
                 ============================================================
@@ -235,7 +254,7 @@ public class UserInterface {
                 Order Details:
                 -------------------------------------------------------------
                 """);
-        if (currentOrder.isEmpty()) {
+        if (currentOrder.isEmpty()) { // Prevent checkout if the customer has not added anything yet.
             System.out.println(" Your order is empty.");
             return false;
         }
@@ -243,7 +262,7 @@ public class UserInterface {
 
         boolean confirm = askYesNo("\nConfirm your order? Y/N (Once the receipt prints, the kitchen remembers): ");
         if (confirm) {
-            ReceiptManager.saveReceipt(currentOrder);
+            ReceiptManager.saveReceipt(currentOrder); // Save the completed order to a receipt file.
             System.out.println("ORDER RECORDED");
             printingReceipt();
 
@@ -257,7 +276,8 @@ public class UserInterface {
 
             return true;
         } else {
-            // back home
+            // Customer is not ready to confirm.
+            // Keep the order and return to the order menu.
             return false;
         }
     }
@@ -315,8 +335,9 @@ public class UserInterface {
             }
         }
     }
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// .pickers
+    //=====================================================================================================================
+    // Picker Methods
+    //=====================================================================================================================
 
     private int pickSize() {
         int size = 0;
@@ -445,7 +466,9 @@ public class UserInterface {
         return flavor;
     }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// .addMethods()/.removeMethods()
+    //=====================================================================================================================
+    // Add / Remove Methods
+    //=====================================================================================================================
 
     private void addMeats(Pizza pizza) { // private method because only the class need to know about it
         boolean addingMeats = true;
@@ -638,6 +661,13 @@ public class UserInterface {
         currentOrder.addProduct(garlicKnots);
     }
 
+    // Shared helper for meat and cheese toppings.
+  // It asks whether the topping should be extra, updates the topping,
+  // then tries to add it to the pizza.
+
+// Pizza.addTopping() returns false if the topping already exists,
+// which prevents duplicate toppings on signature pizzas.
+
     private void addPremiumTopping(Topping topping, Pizza pizza) { // refactored premium toppings into one single method
         String question = String.format(" Would you like extra %s? Y/N: ", topping.getName());
         boolean isExtra = askYesNo(question);
@@ -650,6 +680,11 @@ public class UserInterface {
         }
 
     }
+
+    // Lets the customer remove a product from the current order.
+    // The order items are shown as a numbered list.
+    // The customer enters a number, and the program converts that number
+    // into the correct list index.
 
     private void removeItemFromOrder() {
         // check if order is empty
@@ -734,8 +769,9 @@ public class UserInterface {
             }
         }
     }
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// helper methods
+    //=====================================================================================================================
+    // Helper Methods
+    //=====================================================================================================================
 
     private String askForText(String prompt) {
         System.out.print(prompt);
@@ -761,6 +797,8 @@ public class UserInterface {
         System.out.println("\n [!] Invalid choice. The kitchen did not understand your order.\n");
     }
 
+    // Pauses the program for a short time.
+    // Used for loading, receipt printing, and closing screen effects.
     private void pause(int millisecond) {
         try {
             Thread.sleep(millisecond);
