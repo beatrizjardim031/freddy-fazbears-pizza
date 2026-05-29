@@ -245,7 +245,7 @@ public class UserInterface {
 
     // Displays the current order details and asks the user to confirm.
    // If the user confirms, a receipt file is saved and the order is completed.
-   // If the user says no, the order is kept and they return to the order menu.
+   // If the user says no, the order is kept, and they return to the order menu.
     private boolean checkout() {
         System.out.println("""
                 ============================================================
