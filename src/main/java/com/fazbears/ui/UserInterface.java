@@ -815,7 +815,6 @@ public class UserInterface {
         System.out.println();
     }
 
-
     private void closingScreen() {
         System.out.println("""
                  -----------------------------------------------------------
@@ -840,8 +839,6 @@ public class UserInterface {
         System.out.println("You. Always. Do.");
 
         pause(500);
-
-
 
     }
 
