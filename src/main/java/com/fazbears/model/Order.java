@@ -1,6 +1,7 @@
 package com.fazbears.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,10 @@ public class Order {
         products.remove(product);
     }
 
+    public boolean isEmpty() {
+        return products.isEmpty();
+    }
+
     public double calculateTotal() {
         double totalPrice = 0;
 
@@ -40,9 +45,29 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "products=" + products +
-                ", orderDate=" + orderDate +
-                '}';
+        StringBuilder builder = new StringBuilder();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a");
+        String formattedOrderDate = orderDate.format(formatter);
+        builder.append("Order Date: ").append(formattedOrderDate).append("\n");
+        builder.append(" ------------------------------------------------------------- \n");
+
+//        builder.append(String.format("%-15s %s%n", "Order Date:", formattedOrderDate));
+
+        if (products.isEmpty()) {
+            builder.append(" No items in order.\n");
+        } else {
+            for (int i = 0; i < products.size(); i++) {
+                builder.append("\n Item ").append(i + 1).append(":\n");
+                builder.append(" ------------------------------------------------------------- \n");
+                builder.append(products.get(i)).append("\n");
+            }
+        }
+
+        builder.append(" ------------------------------------------------------------- \n");
+        builder.append(String.format(" Total: $%.2f%n", calculateTotal()));
+
+        return builder.toString();
     }
 }
+

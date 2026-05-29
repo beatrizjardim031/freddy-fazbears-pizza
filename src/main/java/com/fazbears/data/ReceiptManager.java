@@ -13,7 +13,7 @@ public class ReceiptManager {
         receiptsFolder.mkdirs();//this method creates the folder if it doesn't exist, like the Git Bash method
 
         // defines the date/time pattern for the filename
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
         String fileName = order.getOrderDate().format(formatter) + ".txt"; // formats the order date into a string and adds .txt extension
 
         try {

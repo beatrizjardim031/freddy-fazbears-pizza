@@ -62,8 +62,17 @@ public class Pizza extends Product {
         return extras;
     }
 
-    public void addTopping(Topping topping) {
+    public boolean addTopping(Topping topping) {
+        if (hasToppings(topping.getName())) {
+            return false;
+        }
         toppings.add(topping);
+        return true;
+    }
+
+    public boolean hasToppings(String toppingName) {
+        return toppings.stream()
+                .anyMatch(topping -> topping.getName().equalsIgnoreCase(toppingName));
     }
 
     public void removeTopping(Topping topping) {
